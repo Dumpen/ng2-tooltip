@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pleerock/ng2-tooltip.git"
+    "url": "https://github.com/dumpen/ng2-tooltip.git"
   },
   "bugs": {
-    "url": "https://github.com/pleerock/ng2-tooltip/issues"
+    "url": "https://github.com/dumpen/ng2-tooltip/issues"
   },
   "tags": [
     "tooltip",
