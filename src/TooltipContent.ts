@@ -80,7 +80,7 @@ export class TooltipContent implements AfterViewInit {
     hide(): void {
         this.top = -1000;
         this.left = -1000;
-        this.isIn = true;
+        this.isIn = false;
         if (this.animation)
             this.isFade = false;
     }
