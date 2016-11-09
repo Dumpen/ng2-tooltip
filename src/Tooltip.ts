@@ -20,8 +20,8 @@ export class Tooltip {
     // Constructor
     // -------------------------------------------------------------------------
 
-    constructor(private viewContainerRef: ViewContainerRef,
-                private resolver: ComponentFactoryResolver) {
+    constructor(private viewContainerRef: ViewContainerRef, private resolver: ComponentFactoryResolver) {
+        document.addEventListener("click", this.onDocumentClick.bind(this));
     }
 
     // -------------------------------------------------------------------------
@@ -29,7 +29,7 @@ export class Tooltip {
     // -------------------------------------------------------------------------
 
     @Input("tooltip")
-    content: string|TooltipContent;
+    content: string | TooltipContent;
 
     @Input()
     tooltipDisabled: boolean;
@@ -38,7 +38,7 @@ export class Tooltip {
     tooltipAnimation: boolean = true;
 
     @Input()
-    tooltipPlacement: "top"|"bottom"|"left"|"right" = "bottom";
+    tooltipPlacement: "top" | "bottom" | "left" | "right" = "bottom";
 
     // -------------------------------------------------------------------------
     // Public Methods
@@ -84,4 +84,9 @@ export class Tooltip {
             (this.content as TooltipContent).hide();
     }
 
+    onDocumentClick(event: any) {
+        if (this.visible && this.content instanceof TooltipContent) {
+            (this.content as TooltipContent).documentClickHide(event);
+        }
+    }
 }

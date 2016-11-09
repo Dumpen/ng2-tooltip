@@ -30,7 +30,7 @@ export class TooltipContent implements AfterViewInit {
     content: string;
 
     @Input()
-    placement: "top"|"bottom"|"left"|"right" = "bottom";
+    placement: "top" | "bottom" | "left" | "right" = "bottom";
 
     @Input()
     animation: boolean = true;
@@ -49,7 +49,7 @@ export class TooltipContent implements AfterViewInit {
     // -------------------------------------------------------------------------
 
     constructor(private element: ElementRef,
-                private cdr: ChangeDetectorRef) {
+        private cdr: ChangeDetectorRef) {
     }
 
     // -------------------------------------------------------------------------
@@ -64,7 +64,7 @@ export class TooltipContent implements AfterViewInit {
     // -------------------------------------------------------------------------
     // Public Methods
     // -------------------------------------------------------------------------
-    
+
     show(): void {
         if (!this.hostElement)
             return;
@@ -83,6 +83,12 @@ export class TooltipContent implements AfterViewInit {
         this.isIn = false;
         if (this.animation)
             this.isFade = false;
+    }
+
+    documentClickHide(event: any) {
+        if (!this.element.nativeElement.contains(event.target)) {
+            this.hide();
+        }
     }
 
     // -------------------------------------------------------------------------
@@ -128,21 +134,21 @@ export class TooltipContent implements AfterViewInit {
                     left: shiftWidth[pos0]()
                 };
                 break;
-            
+
             case "left":
                 targetElPos = {
                     top: shiftHeight[pos1](),
                     left: hostElPos.left - targetElWidth
                 };
                 break;
-            
+
             case "bottom":
                 targetElPos = {
                     top: shiftHeight[pos0](),
                     left: shiftWidth[pos1]()
                 };
                 break;
-            
+
             default:
                 targetElPos = {
                     top: hostElPos.top - targetElHeight,
@@ -173,7 +179,7 @@ export class TooltipContent implements AfterViewInit {
         };
     }
 
-    private offset(nativeEl:any): { width: number, height: number, top: number, left: number } {
+    private offset(nativeEl: any): { width: number, height: number, top: number, left: number } {
         const boundingClientRect = nativeEl.getBoundingClientRect();
         return {
             width: boundingClientRect.width || nativeEl.offsetWidth,
@@ -189,13 +195,13 @@ export class TooltipContent implements AfterViewInit {
 
         if (window.getComputedStyle)
             return (window.getComputedStyle(nativeEl) as any)[cssProp];
-        
+
         // finally try and get inline style
         return (nativeEl.style as any)[cssProp];
     }
 
     private isStaticPositioned(nativeEl: HTMLElement): boolean {
-        return (this.getStyle(nativeEl, "position") || "static" ) === "static";
+        return (this.getStyle(nativeEl, "position") || "static") === "static";
     }
 
     private parentOffsetEl(nativeEl: HTMLElement): any {
