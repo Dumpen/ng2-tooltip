@@ -1,5 +1,13 @@
-typings/
-build/
+yarn.lock
+.tmp
 node_modules
-npm-debug.log
 .vs
+.vscode
+.idea
+.DS_Store
+npm-debug.log
+*.ngsummary.json
+dist/*
+!dist/package.json
+*.ngsummary.*
+*.ngfactory.*

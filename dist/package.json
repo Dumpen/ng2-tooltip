@@ -1,0 +1,33 @@
+{
+  "name": "ng-tooltip-dumpen",
+  "author": "Umed Khudoiberdiev <pleerock.me@gmail.com>",
+  "version": "2.0.0",
+  "description": "Simple tooltip control for your angular2 applications using bootstrap3.",
+  "license": "MIT",
+  "homepage": "https://github.com/dumpen/ng2-tooltip",
+  "readmeFilename": "README.md",
+  "keywords": [
+    "tooltip",
+    "angular6",
+    "typescript",
+    "angular6-tooltip"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dumpen/ng2-tooltip"
+  },
+  "bugs": {
+    "url": "https://github.com/Dumpen/ng2-tooltip/issues"
+  },
+  "main": "bundles/angular-module-starter.umd.js",
+  "module": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {},
+  "peerDependencies": {
+    "@angular/core": "^6.1.0",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "~6.2.0",
+    "zone.js": "~0.8.26",
+    "typescript": "~2.9.2"
+  }
+}
